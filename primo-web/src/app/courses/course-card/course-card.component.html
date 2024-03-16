@@ -1,0 +1,22 @@
+<mat-card data-testid="course-card" class="course-card">
+  <mat-card-header>
+    <!--
+      <div mat-card-avatar class="course-card-header-image"></div>
+    -->
+    <mat-card-title data-testid="course-card-title">{{ course?.description }}</mat-card-title>
+    <mat-card-subtitle data-testid="course-card-subtitle">{{ course?.category }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image data-testid="course-card-image" [src]="course?.iconUrl" alt="Course icon">
+  <mat-card-content>
+    <p data-testid="course-card-description">
+      {{ course?.longDescription }}
+    </p>
+    @if (course?.lessonsCount) {
+    <p data-testid="course-card-lessons-count"> Number of lessons: {{ course?.lessonsCount }}</p>
+    }
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button data-testid="course-card-like-btn">LIKE</button>
+    <button mat-button data-testid="course-card-share-btn">SHARE</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,11 @@
+@for (course of courses; track course.id) {
+<app-course-card [course]="course"></app-course-card>
+} @empty {
+<li>There are no courses</li>
+}
+
+@for (course of courses; track course.id) {
+<app-course-card-input-signal [course]="course"></app-course-card-input-signal>
+} @empty {
+<li>There are no courses</li>
+}
