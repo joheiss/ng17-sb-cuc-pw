@@ -4,13 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test"
+    "test": "ENV=dev npx playwright test"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.42.1",
-    "@types/node": "^20.11.28"
+    "@types/node": "^20.11.28",
+    "dotenv": "^16.4.5",
+    "typescript": "^5.4.3"
+
   }
 }

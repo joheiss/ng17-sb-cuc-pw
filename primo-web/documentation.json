@@ -3,12 +3,12 @@
     "interfaces": [
         {
             "name": "Course",
-            "id": "interface-Course-b19d6c6c0247172ae2c9a323c636bc75dfecc1ed62ab4e229a47599be22926104a116ea63f988b1c3aca62e11bedc1c5d3d8c8270f82c24db82f2f9ec74e7912",
+            "id": "interface-Course-9027a0e8652b9bd39376bd372cfbda32fad6387865ba2e960efadbc3127424918c689d4db623d9c988c1481aedc638155c5fbde051fb34ad21f16652e7165693",
             "file": "src/app/courses/course.interface.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export type CourseCategory = \"BEGIINER\" | \"INTERMEDIATE\" | \"ADVANCED\";\n\nexport interface Course {\n  id: number;\n  description: string;\n  iconUrl?: string;\n  longDescription?: string;\n  lessonsCount?: number;\n  category?: CourseCategory;\n}\n",
+            "sourceCode": "export type CourseCategory = \"BEGINNER\" | \"INTERMEDIATE\" | \"ADVANCED\";\n\nexport interface Course {\n  id: number;\n  description: string;\n  iconUrl?: string;\n  longDescription?: string;\n  lessonsCount?: number;\n  category?: CourseCategory;\n}\n",
             "properties": [
                 {
                     "name": "category",
@@ -103,7 +103,7 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-88ef2d1881512442d8e8033625880c13756c7997e2cafea8cdcd1e10e788d048b7bb0d9293b47a4be7024f6e312d5cc83405a635aad414b9dc111a5d6b3a6aa4",
+            "id": "component-AppComponent-66352849b9144644c7033a6a5d682284b793224c46e6ede0882f5be48d4b57b89a5f0e4d8327cc2144e529b60bda203e523659f7aa1e5070d328f058d13e8ef0",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -129,7 +129,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 22
+                    "line": 26
                 },
                 {
                     "name": "background",
@@ -139,7 +139,7 @@
                     "type": "ThemePalette",
                     "optional": false,
                     "description": "",
-                    "line": 23
+                    "line": 27
                 },
                 {
                     "name": "courses",
@@ -149,7 +149,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 19
+                    "line": 20
                 },
                 {
                     "name": "links",
@@ -159,7 +159,27 @@
                     "type": "[]",
                     "optional": false,
                     "description": "",
-                    "line": 21
+                    "line": 25
+                },
+                {
+                    "name": "price",
+                    "defaultValue": "1234.56",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 22
+                },
+                {
+                    "name": "priceCurrencyCode",
+                    "defaultValue": "\"EUR\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 23
                 },
                 {
                     "name": "title",
@@ -169,7 +189,17 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 18
+                    "line": 19
+                },
+                {
+                    "name": "today",
+                    "defaultValue": "new Date()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 21
                 }
             ],
             "methodsClass": [
@@ -179,7 +209,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 29,
+                    "line": 33,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -189,7 +219,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 25,
+                    "line": 29,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -200,6 +230,10 @@
             "hostListeners": [],
             "standalone": true,
             "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
                 {
                     "name": "MatTabsModule",
                     "type": "module"
@@ -219,13 +253,13 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { RouterOutlet } from '@angular/router';\nimport { CoursesComponent } from './courses/courses/courses.component';\nimport { ThemePalette } from '@angular/material/core';\nimport { MatButtonModule } from '@angular/material/button';\nimport { MatTabsModule } from '@angular/material/tabs';\n\nimport { COURSES } from \"../../../primo-data/db-data\";\n\n@Component({\n  selector: 'app-root',\n  standalone: true,\n  imports: [MatTabsModule, MatButtonModule, RouterOutlet, CoursesComponent],\n  templateUrl: './app.component.html',\n  styleUrl: './app.component.scss'\n})\nexport class AppComponent {\n  title = 'primo-web';\n  courses = COURSES;\n\n  links = ['First', 'Second', 'Third'];\n  activeLink = this.links[0];\n  background: ThemePalette = undefined;\n\n  toggleBackground() {\n    this.background = this.background ? undefined : 'primary';\n  }\n\n  addLink() {\n    this.links.push(`Link ${this.links.length + 1}`);\n  }\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { RouterOutlet } from '@angular/router';\nimport { CoursesComponent } from './courses/courses/courses.component';\nimport { ThemePalette } from '@angular/material/core';\nimport { MatButtonModule } from '@angular/material/button';\nimport { MatTabsModule } from '@angular/material/tabs';\n\nimport { COURSES } from \"../../../primo-data/db-data\";\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-root',\n  standalone: true,\n  imports: [CommonModule, MatTabsModule, MatButtonModule, RouterOutlet, CoursesComponent],\n  templateUrl: './app.component.html',\n  styleUrl: './app.component.scss'\n})\nexport class AppComponent {\n  title = 'primo-web';\n  courses = COURSES;\n  today = new Date();\n  price = 1234.56;\n  priceCurrencyCode = \"EUR\";\n\n  links = ['First', 'Second', 'Third'];\n  activeLink = this.links[0];\n  background: ThemePalette = undefined;\n\n  toggleBackground() {\n    this.background = this.background ? undefined : 'primary';\n  }\n\n  addLink() {\n    this.links.push(`Link ${this.links.length + 1}`);\n  }\n}\n",
             "styleUrl": "./app.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<nav mat-tab-nav-bar [backgroundColor]=\"background\" [tabPanel]=\"tabPanel\">\n  @for (link of links; track link) {\n  <a mat-tab-link (click)=\"activeLink = link\" [active]=\"activeLink == link\"> {{link}} </a>\n  }\n  <a mat-tab-link disabled>Disabled Link</a>\n</nav>\n<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>\n\n<button mat-raised-button class=\"example-action-button\" (click)=\"toggleBackground()\">\n  Toggle background\n</button>\n<button mat-raised-button class=\"example-action-button\" (click)=\"addLink()\">\n  Add link\n</button>\n\n<app-courses></app-courses>\n<router-outlet />"
+            "templateData": "<nav mat-tab-nav-bar [backgroundColor]=\"background\" [tabPanel]=\"tabPanel\">\n  @for (link of links; track link) {\n  <a mat-tab-link (click)=\"activeLink = link\" [active]=\"activeLink == link\"> {{link}} </a>\n  }\n  <a mat-tab-link disabled>Disabled Link</a>\n</nav>\n<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>\n\n<button mat-raised-button class=\"example-action-button\" (click)=\"toggleBackground()\">\n  Toggle background\n</button>\n<button mat-raised-button class=\"example-action-button\" (click)=\"addLink()\">\n  Add link\n</button>\n\n{{ today | date }}\n{{ price | currency: priceCurrencyCode }}\n\n<app-courses></app-courses>\n<router-outlet />"
         },
         {
             "name": "ButtonComponent",
@@ -362,7 +396,7 @@
         },
         {
             "name": "CourseCardComponent",
-            "id": "component-CourseCardComponent-91184857ee3d8e147c2cc5b3398a0c35ce243c4c6e126d554ed6c76352fc93dcf5d34cd92f2e3141d5ca17b88476ba7c26c51be8e5b298c6fb44bad716fc24b5",
+            "id": "component-CourseCardComponent-12d26c280af66a1ce400f0518f5725c088c66034a62288b12bebb90a6d0b1ef58bae81e1523d16741bd10db7787f866b715a64f9418bbe88a7e7bcc27a5561f0",
             "file": "src/app/courses/course-card/course-card.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -382,20 +416,35 @@
                     "name": "course",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 14,
+                    "line": 15,
                     "type": "Course",
                     "decorators": []
                 }
             ],
             "outputsClass": [],
             "propertiesClass": [],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "getAvatar",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "{ \"background-image\": string; \"background- size\": string; }",
+                    "typeParameters": [],
+                    "line": 17,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
             "hostListeners": [],
             "standalone": true,
             "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
                 {
                     "name": "MatButtonModule",
                     "type": "module"
@@ -408,17 +457,17 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { MatButtonModule } from '@angular/material/button';\nimport { MatCardModule } from '@angular/material/card';\nimport { Course } from '../course.interface';\n\n@Component({\n  selector: 'app-course-card',\n  standalone: true,\n  imports: [MatButtonModule, MatCardModule],\n  templateUrl: './course-card.component.html',\n  styleUrl: './course-card.component.scss'\n})\nexport class CourseCardComponent {\n  @Input() course?: Course;\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { MatButtonModule } from '@angular/material/button';\nimport { MatCardModule } from '@angular/material/card';\nimport { Course } from '../course.interface';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-course-card',\n  standalone: true,\n  imports: [CommonModule, MatButtonModule, MatCardModule],\n  templateUrl: './course-card.component.html',\n  styleUrl: './course-card.component.scss'\n})\nexport class CourseCardComponent {\n  @Input() course?: Course;\n\n  getAvatar() {\n    return {\n      \"background-image\": `url(${this.course?.iconUrl})`,\n      \"background- size\": \"cover\",\n    }\n  };\n};\n",
             "styleUrl": "./course-card.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<mat-card data-testid=\"course-card\" class=\"course-card\">\n  <mat-card-header>\n    <!--\n      <div mat-card-avatar class=\"course-card-header-image\"></div>\n    -->\n    <mat-card-title data-testid=\"course-card-title\">{{ course?.description }}</mat-card-title>\n    <mat-card-subtitle data-testid=\"course-card-subtitle\">{{ course?.category }}</mat-card-subtitle>\n  </mat-card-header>\n  <img mat-card-image data-testid=\"course-card-image\" [src]=\"course?.iconUrl\" alt=\"Course icon\">\n  <mat-card-content>\n    <p data-testid=\"course-card-description\">\n      {{ course?.longDescription }}\n    </p>\n    @if (course?.lessonsCount) {\n    <p data-testid=\"course-card-lessons-count\"> Number of lessons: {{ course?.lessonsCount }}</p>\n    }\n  </mat-card-content>\n  <mat-card-actions>\n    <button mat-button data-testid=\"course-card-like-btn\">LIKE</button>\n    <button mat-button data-testid=\"course-card-share-btn\">SHARE</button>\n  </mat-card-actions>\n</mat-card>"
+            "templateData": "<mat-card data-testid=\"course-card\" class=\"course-card\">\n  <mat-card-header>\n    <div mat-card-avatar [ngStyle]=\"getAvatar()\"></div>\n    <mat-card-title data-testid=\"course-card-title\">{{ course?.description }}</mat-card-title>\n    <mat-card-subtitle data-testid=\"course-card-subtitle\">{{ course?.category }}</mat-card-subtitle>\n  </mat-card-header>\n  @if (course?.iconUrl) {\n  <img mat-card-image data-testid=\"course-card-image\" [src]=\"course?.iconUrl\" alt=\"Course icon\">\n  } @else {\n  <img mat-card-image data-testid=\"course-card-image\" src=\"assets/images/empty-image.png\" alt=\"No course icon found\">\n  }\n  <mat-card-content>\n    <p data-testid=\"course-card-description\">\n      {{ course?.longDescription }}\n    </p>\n    @if (course?.lessonsCount) {\n    <p data-testid=\"course-card-lessons-count\"> Number of lessons: {{ course?.lessonsCount }}</p>\n    }\n  </mat-card-content>\n  <mat-card-actions>\n    <button mat-button data-testid=\"course-card-like-btn\">LIKE</button>\n    <button mat-button data-testid=\"course-card-share-btn\">SHARE</button>\n  </mat-card-actions>\n</mat-card>"
         },
         {
             "name": "CourseCardInputSignalComponent",
-            "id": "component-CourseCardInputSignalComponent-5a788ccf524c772ead6732bccf3986e044e2856d9334ee9f77f276f6e2b7053599366332f727c93a5b3ab4a1cf3c524039a1fc17286691c814683b509d8ac70f",
+            "id": "component-CourseCardInputSignalComponent-09bbb503b638ca7f5c5a9cb70ada975e490345c25d246a1fb1f2aed51bfb9f7797481bdaf351ae52a4444f44eb259c61c6154b29555edbfc1e6fd644d5be9f8e",
             "file": "src/app/courses/course-card-input-signal/course-card-input-signal.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -444,16 +493,31 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 14
+                    "line": 15
                 }
             ],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "getAvatar",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "{ \"background-image\": string; }",
+                    "typeParameters": [],
+                    "line": 17,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
             "hostListeners": [],
             "standalone": true,
             "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
                 {
                     "name": "MatButtonModule",
                     "type": "module"
@@ -466,17 +530,72 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, input } from '@angular/core';\nimport { MatButtonModule } from '@angular/material/button';\nimport { MatCardModule } from '@angular/material/card';\nimport { Course } from '../course.interface';\n\n@Component({\n  selector: 'app-course-card-input-signal',\n  standalone: true,\n  imports: [MatButtonModule, MatCardModule],\n  templateUrl: './course-card-input-signal.component.html',\n  styleUrl: './course-card-input-signal.component.scss'\n})\nexport class CourseCardInputSignalComponent {\n  course = input.required<Course>();\n}\n",
+            "sourceCode": "import { Component, input } from '@angular/core';\nimport { MatButtonModule } from '@angular/material/button';\nimport { MatCardModule } from '@angular/material/card';\nimport { Course } from '../course.interface';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-course-card-input-signal',\n  standalone: true,\n  imports: [CommonModule, MatButtonModule, MatCardModule],\n  templateUrl: './course-card-input-signal.component.html',\n  styleUrl: './course-card-input-signal.component.scss'\n})\nexport class CourseCardInputSignalComponent {\n  course = input.required<Course>();\n\n  getAvatar() {\n    return { \"background-image\": \"url(`${course.imageUrl}`);\" };\n  }\n\n}\n",
             "styleUrl": "./course-card-input-signal.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<mat-card data-testid=\"course-card\" class=\"course-card\">\n  <mat-card-header>\n    <!--\n      <div mat-card-avatar class=\"course-card-header-image\"></div>\n    -->\n    <mat-card-title data-testid=\"course-card-title\">{{ course().description }}</mat-card-title>\n    <mat-card-subtitle data-testid=\"course-card-subtitle\">{{ course().category }}</mat-card-subtitle>\n  </mat-card-header>\n  <img mat-card-image data-testid=\"course-card-image\" [src]=\"course().iconUrl\" alt=\"Course icon\">\n  <mat-card-content>\n    <p data-testid=\"course-card-description\">\n      {{ course().longDescription }}\n    </p>\n    @if (course().lessonsCount) {\n    <p data-testid=\"course-card-lessons-count\"> Number of lessons: {{ course().lessonsCount }}</p>\n    }\n  </mat-card-content>\n  <mat-card-actions>\n    <button mat-button data-testid=\"course-card-like-btn\">LIKE</button>\n    <button mat-button data-testid=\"course-card-share-btn\">SHARE</button>\n  </mat-card-actions>\n</mat-card>"
+            "templateData": "<mat-card data-testid=\"course-card\" class=\"course-card\">\n  <mat-card-header>\n    <div mat-card-avatar class=\"course-card-header-image\" [ngStyle]=\"getAvatar()\"></div>\n    <mat-card-title data-testid=\"course-card-title\">{{ course().description }}</mat-card-title>\n    <mat-card-subtitle data-testid=\"course-card-subtitle\">{{ course().category }}</mat-card-subtitle>\n  </mat-card-header>\n  <img mat-card-image data-testid=\"course-card-image\" [src]=\"course().iconUrl\" alt=\"Course icon\">\n  <mat-card-content>\n    <p data-testid=\"course-card-description\">\n      {{ course().longDescription }}\n    </p>\n    @if (course().lessonsCount) {\n    <p data-testid=\"course-card-lessons-count\"> Number of lessons: {{ course().lessonsCount }}</p>\n    }\n  </mat-card-content>\n  <mat-card-actions>\n    <button mat-button data-testid=\"course-card-like-btn\">LIKE</button>\n    <button mat-button data-testid=\"course-card-share-btn\">SHARE</button>\n  </mat-card-actions>\n</mat-card>"
+        },
+        {
+            "name": "CourseCardsComponent",
+            "id": "component-CourseCardsComponent-b9868f070446b207e3f7faf796ab79889f5fc9f9d9a34ea4aedc93eea62b645235158c53d999e65bdffd61701c54f079331c77e650be78214b189a55a85d6a6b",
+            "file": "src/app/courses/course-cards/course-cards.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-course-cards",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./course-cards.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "required": true,
+                    "name": "courses",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "optional": false,
+                    "line": 13,
+                    "type": "Course[]",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CourseCardComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { CourseCardComponent } from '../course-card/course-card.component';\nimport { Course } from '../course.interface';\n\n@Component({\n  selector: 'app-course-cards',\n  standalone: true,\n  imports: [CourseCardComponent],\n  templateUrl: './course-cards.component.html',\n  styleUrl: './course-cards.component.scss'\n})\nexport class CourseCardsComponent {\n  @Input({ required: true }) courses: Course[] = [];\n}\n",
+            "styleUrl": "./course-cards.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "@for (course of courses; track course.id) {\n<app-course-card [course]=\"course\"></app-course-card>\n} @empty {\n<h1>No courses found</h1>\n}"
         },
         {
             "name": "CoursesComponent",
-            "id": "component-CoursesComponent-e1cd7037e71e45a4b68d36c0410f983597a5a41226f3dcf73ddb1856c36ebfd878f6e0e1d8f10f3741938b8081d06948b704d2ef179d18ca8eda4d4167c91204",
+            "id": "component-CoursesComponent-246f57ae8a9f371778cf1e23c98223500fb660b72c9ef32db3ecb194d998e1debd0cf7dbe311990cec5b641f4af6d2fad92f776fdf58e4eb22d6e71edb43f56c",
             "file": "src/app/courses/courses/courses.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -502,7 +621,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 14
+                    "line": 13
                 }
             ],
             "methodsClass": [],
@@ -513,24 +632,20 @@
             "standalone": true,
             "imports": [
                 {
-                    "name": "CourseCardComponent",
-                    "type": "component"
-                },
-                {
-                    "name": "CourseCardInputSignalComponent",
+                    "name": "CourseCardsComponent",
                     "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { COURSES } from '../../../../../primo-data/db-data';\nimport { CourseCardComponent } from '../course-card/course-card.component';\nimport { CourseCardInputSignalComponent } from '../course-card-input-signal/course-card-input-signal.component';\n\n@Component({\n  selector: 'app-courses',\n  standalone: true,\n  imports: [CourseCardComponent, CourseCardInputSignalComponent],\n  templateUrl: './courses.component.html',\n  styleUrl: './courses.component.scss'\n})\nexport class CoursesComponent {\n  courses = COURSES;\n\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { COURSES } from '../../../../../primo-data/db-data';\nimport { CourseCardsComponent } from '../course-cards/course-cards.component';\n\n@Component({\n  selector: 'app-courses',\n  standalone: true,\n  imports: [CourseCardsComponent],\n  templateUrl: './courses.component.html',\n  styleUrl: './courses.component.scss'\n})\nexport class CoursesComponent {\n  courses = COURSES;\n\n}\n",
             "styleUrl": "./courses.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "@for (course of courses; track course.id) {\n<app-course-card [course]=\"course\"></app-course-card>\n} @empty {\n<li>There are no courses</li>\n}\n\n@for (course of courses; track course.id) {\n<app-course-card-input-signal [course]=\"course\"></app-course-card-input-signal>\n} @empty {\n<li>There are no courses</li>\n}"
+            "templateData": "<app-course-cards [courses]=\"courses\" />"
         },
         {
             "name": "HeaderComponent",
@@ -723,16 +838,28 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "ApplicationConfig",
-                "defaultValue": "{\n  providers: [provideRouter(routes), provideAnimationsAsync()]\n}"
+                "defaultValue": "{\n  providers: [\n    provideLocaleConfig(),\n    provideRouter(routes),\n    provideAnimationsAsync()]\n}"
             }
         ],
-        "functions": [],
+        "functions": [
+            {
+                "name": "provideLocaleConfig",
+                "file": "src/app/locale-config.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [],
+                "returnType": "Provider[]"
+            }
+        ],
         "typealiases": [
             {
                 "name": "CourseCategory",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "\"BEGIINER\" | \"INTERMEDIATE\" | \"ADVANCED\"",
+                "rawtype": "\"BEGINNER\" | \"INTERMEDIATE\" | \"ADVANCED\"",
                 "file": "src/app/courses/course.interface.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -751,11 +878,25 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "ApplicationConfig",
-                    "defaultValue": "{\n  providers: [provideRouter(routes), provideAnimationsAsync()]\n}"
+                    "defaultValue": "{\n  providers: [\n    provideLocaleConfig(),\n    provideRouter(routes),\n    provideAnimationsAsync()]\n}"
                 }
             ]
         },
-        "groupedFunctions": {},
+        "groupedFunctions": {
+            "src/app/locale-config.ts": [
+                {
+                    "name": "provideLocaleConfig",
+                    "file": "src/app/locale-config.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [],
+                    "returnType": "Provider[]"
+                }
+            ]
+        },
         "groupedEnumerations": {},
         "groupedTypeAliases": {
             "src/app/courses/course.interface.ts": [
@@ -763,7 +904,7 @@
                     "name": "CourseCategory",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "\"BEGIINER\" | \"INTERMEDIATE\" | \"ADVANCED\"",
+                    "rawtype": "\"BEGINNER\" | \"INTERMEDIATE\" | \"ADVANCED\"",
                     "file": "src/app/courses/course.interface.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
@@ -775,7 +916,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 8,
+        "count": 6,
         "status": "low",
         "files": [
             {
@@ -784,7 +925,7 @@
                 "linktype": "component",
                 "name": "AppComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/8",
+                "coverageCount": "0/11",
                 "status": "low"
             },
             {
@@ -803,7 +944,7 @@
                 "linktype": "component",
                 "name": "CourseCardInputSignalComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
@@ -811,6 +952,15 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "CourseCardComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/courses/course-cards/course-cards.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CourseCardsComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/2",
                 "status": "low"
@@ -831,6 +981,16 @@
                 "name": "CoursesComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/locale-config.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "provideLocaleConfig",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {

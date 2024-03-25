@@ -13,5 +13,8 @@
   Add link
 </button>
 
-<app-courses></app-courses>
+{{ today | date }}
+{{ price | currency: priceCurrencyCode }}
+
+<app-courses data-testid="courses"></app-courses>
 <router-outlet />

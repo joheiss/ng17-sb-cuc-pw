@@ -6,17 +6,21 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 
 import { COURSES } from "../../../primo-data/db-data";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [MatTabsModule, MatButtonModule, RouterOutlet, CoursesComponent],
+  imports: [CommonModule, MatTabsModule, MatButtonModule, RouterOutlet, CoursesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'primo-web';
   courses = COURSES;
+  today = new Date();
+  price = 1234.56;
+  priceCurrencyCode = "EUR";
 
   links = ['First', 'Second', 'Third'];
   activeLink = this.links[0];

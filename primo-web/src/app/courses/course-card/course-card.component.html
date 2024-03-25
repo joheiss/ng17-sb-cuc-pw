@@ -1,18 +1,22 @@
 <mat-card data-testid="course-card" class="course-card">
   <mat-card-header>
-    <!--
-      <div mat-card-avatar class="course-card-header-image"></div>
-    -->
+    <div mat-card-avatar [ngStyle]="getAvatar()"></div>
     <mat-card-title data-testid="course-card-title">{{ course?.description }}</mat-card-title>
     <mat-card-subtitle data-testid="course-card-subtitle">{{ course?.category }}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image data-testid="course-card-image" [src]="course?.iconUrl" alt="Course icon">
+  @if (course?.iconUrl) {
+  <img mat-card-image class="course-card-image" data-testid="course-card-image" [src]="course?.iconUrl"
+    alt="Course icon">
+  } @else {
+  <img mat-card-image class="course-card-image" data-testid="course-card-image" src="assets/images/empty-image.png"
+    alt="No course icon found">
+  }
   <mat-card-content>
     <p data-testid="course-card-description">
       {{ course?.longDescription }}
     </p>
     @if (course?.lessonsCount) {
-    <p data-testid="course-card-lessons-count"> Number of lessons: {{ course?.lessonsCount }}</p>
+    <p highlighted data-testid="course-card-lessons-count"> Number of lessons: {{ course?.lessonsCount }}</p>
     }
   </mat-card-content>
   <mat-card-actions>

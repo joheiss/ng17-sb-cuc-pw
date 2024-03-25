@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { COURSES } from '../../../../../primo-data/db-data';
-import { CourseCardComponent } from '../course-card/course-card.component';
-import { CourseCardInputSignalComponent } from '../course-card-input-signal/course-card-input-signal.component';
+import { CourseCardsComponent } from '../course-cards/course-cards.component';
 
 @Component({
   selector: 'app-courses',
   standalone: true,
-  imports: [CourseCardComponent, CourseCardInputSignalComponent],
+  imports: [CourseCardsComponent],
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.scss'
 })

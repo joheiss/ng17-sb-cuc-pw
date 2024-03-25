@@ -2,7 +2,7 @@ import { argsToTemplate, type Meta, type StoryObj } from '@storybook/angular';
 
 import { fn } from '@storybook/test';
 import { CourseCardInputSignalComponent } from './course-card-input-signal.component';
-import { input, InputSignal } from '@angular/core';
+import { input, InputSignal, Signal } from '@angular/core';
 import { Course } from '../course.interface';
 
 const meta: Meta<CourseCardInputSignalComponent> = {
@@ -30,13 +30,13 @@ type Story = StoryObj<CourseCardInputSignalComponent>;
 
 export const Basic: Story = {
   args: {
-    // course: input<Course>({
+    // course: {
     //   id: 1,
     //   description: "Angular Core Deep Dive",
     //   iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-core-in-depth-small.png',
     //   longDescription: "A detailed walk-through of the most important part of Angular - the Core and Common modules",
     //   lessonsCount: 10,
     //   category: 'INTERMEDIATE'
-    // }),
+    // },
   },
 };

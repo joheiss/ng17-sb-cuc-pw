@@ -1,8 +1,6 @@
 <mat-card data-testid="course-card" class="course-card">
   <mat-card-header>
-    <!--
-      <div mat-card-avatar class="course-card-header-image"></div>
-    -->
+    <div mat-card-avatar class="course-card-header-image" [ngStyle]="getAvatar()"></div>
     <mat-card-title data-testid="course-card-title">{{ course().description }}</mat-card-title>
     <mat-card-subtitle data-testid="course-card-subtitle">{{ course().category }}</mat-card-subtitle>
   </mat-card-header>

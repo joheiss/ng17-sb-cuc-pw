@@ -1,7 +1,9 @@
-import { argsToTemplate, type Meta, type StoryObj } from '@storybook/angular';
+import { applicationConfig, argsToTemplate, type Meta, type StoryObj } from '@storybook/angular';
 
 import { fn } from '@storybook/test';
 import { CourseCardComponent } from './course-card.component';
+import { provideLocaleConfig } from '../../locale-config';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 const meta: Meta<CourseCardComponent> = {
   title: 'Courses/Course Card',
@@ -33,6 +35,17 @@ export const Basic: Story = {
       iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-core-in-depth-small.png',
       longDescription: "A detailed walk-through of the most important part of Angular - the Core and Common modules",
       lessonsCount: 10,
+      category: 'INTERMEDIATE'
+    },
+  },
+};
+
+export const WithoutImageAndLessonsCount: Story = {
+  args: {
+    course: {
+      id: 1,
+      description: "Angular Core Deep Dive",
+      longDescription: "A detailed walk-through of the most important part of Angular - the Core and Common modules",
       category: 'INTERMEDIATE'
     },
   },

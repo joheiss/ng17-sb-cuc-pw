@@ -12,6 +12,7 @@ const config: StorybookConfig = {
     name: "@storybook/angular",
     options: {},
   },
+  staticDirs: [{ from: "../src/assets/images", to: "/assets/images" }],
   docs: {
     autodocs: "tag",
   },

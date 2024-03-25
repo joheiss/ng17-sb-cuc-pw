@@ -1,0 +1,5 @@
+@for (course of courses; track course.id) {
+<app-course-card [course]="course"></app-course-card>
+} @empty {
+<h1>No courses found</h1>
+}
